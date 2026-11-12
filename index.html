@@ -317,6 +317,46 @@ html::-webkit-scrollbar,body::-webkit-scrollbar,body *::-webkit-scrollbar{displa
 #marc-promotions h3{font-size:30px}
 #marc-promotions .promo-bottom{margin-top:auto}
 }
+
+/* Entry offer hierarchy: centered, stacked, campaign first. */
+#marc-promotions{width:min(780px,calc(100% - 32px));max-width:780px;background:#0b0b0b}
+#marc-promotions .promo-inner{padding:12px 22px 18px}
+#marc-promotions .promo-grid{display:flex;flex-direction:column;align-items:center;gap:0;padding-top:28px}
+#marc-promotions .promo-card{width:100%;flex:none;align-items:center;text-align:center;padding:26px 24px!important}
+#marc-promotions .promo-featured{border:1px solid #d6ae6380;background:linear-gradient(145deg,#201a0c,#0d0d0d 75%);box-shadow:0 0 32px #d6ae630c}
+#marc-promotions .promo-for{margin:0 0 12px;padding:4px 10px;font-size:10px;letter-spacing:.04em;text-transform:none;color:#f0d590;background:#d6ae631a}
+#marc-promotions h3{font-family:Inter,Arial,sans-serif;max-width:100%;font-size:24px;line-height:1.3;margin:0 0 12px;font-weight:600}
+#marc-promotions .promo-price{margin:0 0 12px;justify-content:center;color:#f2cf7d}
+#marc-promotions .promo-value{font-size:52px}
+#marc-promotions .promo-currency{font-size:25px}
+#marc-promotions .promo-cents{font-size:25px}
+#marc-promotions .promo-copy{max-width:100%;font-size:14px;line-height:1.6;margin:0 0 12px}
+#marc-promotions .promo-payment{margin:0 0 8px;font-size:11px}
+#marc-promotions .promo-freedom{margin:0 0 16px;padding:0;border:0;font-size:12px;color:#d9c39a}
+#marc-promotions .promo-cta{max-width:none;min-height:50px;border-radius:9px;text-transform:uppercase;font-size:13px;letter-spacing:.025em}
+#marc-promotions .promo-secondary{width:94%;margin-top:20px;padding:22px 14px 0!important;border:0;border-top:1px solid #d6ae6328;border-radius:0;background:transparent;box-shadow:none}
+#marc-promotions .promo-secondary-intro{margin:0 0 12px;color:#c5beb0;font-size:13px;line-height:1.5}
+#marc-promotions .promo-secondary h3{font-size:20px;margin-bottom:10px}
+#marc-promotions .promo-secondary .promo-price{color:#f4f1eb;margin-bottom:10px}
+#marc-promotions .promo-secondary .promo-value{font-size:36px}
+#marc-promotions .promo-secondary .promo-currency,#marc-promotions .promo-secondary .promo-cents{font-size:19px}
+#marc-promotions .promo-secondary .promo-product{max-width:560px;font-size:13px;line-height:1.6;margin:0 0 12px;font-weight:400;color:#c5beb0}
+#marc-promotions .promo-secondary .promo-cta{background:transparent;border:1px solid #d6ae6355;color:#e7d6b4;min-height:46px}
+#marc-promotions .promo-secondary .promo-cta:hover{background:#d6ae630c}
+#marc-promotions .promo-offer-note{max-width:100%;margin:16px auto 0;text-align:center;font-size:10px;line-height:1.65}
+#marc-promotions .promo-continue{margin-top:12px}
+@media(max-width:640px){
+#marc-promotions{width:calc(100% - 20px)}
+#marc-promotions .promo-inner{padding:10px 12px 14px}
+#marc-promotions .promo-card{padding:22px 14px!important}
+#marc-promotions h3{font-size:21px}
+#marc-promotions .promo-copy{font-size:13px}
+#marc-promotions .promo-secondary{width:96%;padding:20px 4px 0!important}
+#marc-promotions .promo-secondary h3{font-size:19px}
+#marc-promotions .promo-secondary-intro{font-size:12px}
+#marc-promotions .promo-value{font-size:46px}
+#marc-promotions .promo-secondary .promo-value{font-size:33px}
+}
 </style><!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -348,7 +388,20 @@ document.documentElement.addEventListener('pointerleave',onExitIntent);
 close.addEventListener('click',hide);dialog.addEventListener('click',e=>{if(e.target===dialog)hide();});
 dialog.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();hide();return;}if(e.key!=='Tab')return;const nodes=panel.querySelectorAll('button,input,select,textarea');const first=nodes[0],last=nodes[nodes.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}});
 form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const data=new FormData(form);const text=['Olá! Vim através do site da MARC. Gostaria de fazer um orçamento.','', 'Nome: '+data.get('name').trim(),'Email: '+data.get('email').trim(),'Interesse: '+data.get('reason'),data.get('comment').trim()?'Comentário: '+data.get('comment').trim():''].filter((x,i)=>x!==''||i===1).join('\n');const url='https://wa.me/5511967876480?text='+encodeURIComponent(text);window.open(url,'_blank','noopener,noreferrer');hide();});
-})();</script><script>(()=>{const footer=document.querySelector('.site-footer'),button=document.querySelector('.footer-whatsapp');if(!footer||!button)return;let queued=false;function align(){queued=false;const rect=footer.getBoundingClientRect();const height=button.offsetHeight;const bottom=rect.top<window.innerHeight?Math.max(24,window.innerHeight-(rect.top+rect.height/2)-height/2):24;button.style.setProperty('--whatsapp-bottom',bottom+'px');}function schedule(){if(!queued){queued=true;requestAnimationFrame(align);}}window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);if(typeof ResizeObserver!=='undefined')new ResizeObserver(schedule).observe(footer);schedule();})();</script><script>(()=>{const nav=document.querySelector('header');const sync=()=>document.documentElement.style.setProperty('--navbar-height',nav.getBoundingClientRect().height+'px');sync();if(typeof ResizeObserver!=='undefined')new ResizeObserver(sync).observe(nav);else window.addEventListener('resize',sync);})();</script><dialog id="marc-promotions" aria-label="Ofertas de sites e campanhas de anúncios"><div class="promo-inner"><button type="button" class="promo-close" aria-label="Fechar ofertas"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><div class="promo-grid"><article class="promo-card" id="promo-site-offer"><p class="promo-for">Ainda não tem um site?</p><h3>Seu site no ar.<br>Sua empresa nos anúncios.</h3><p class="promo-product">Site/Landing Page + 1 campanha de anúncio</p><p class="promo-copy">Apresente seus serviços em um site profissional e comece a divulgar sua empresa com uma campanha de anúncio, acompanhada por 30 dias.</p><div class="promo-bottom"><p class="promo-investment">Seu investimento</p><div class="promo-price" aria-label="R$ 997,00"><span class="promo-currency">R$</span><span class="promo-value">997</span><span class="promo-cents">,00</span></div><p class="promo-payment">Pagamento único</p><div class="promo-freedom">Sem contrato e sem fidelidade</div><a class="promo-cta" href="https://wa.me/5511967876480?text=Ol%C3%A1%21%20Vim%20atrav%C3%A9s%20do%20site%20da%20MARC.%20Tenho%20interesse%20no%20combo%20de%20site%2Flanding%20page%20%2B%20cria%C3%A7%C3%A3o%20de%201%20campanha%20de%20an%C3%BAncio%20com%2030%20dias%20de%20acompanhamento%2C%20por%20R%24%20997%2C00%2C%20sem%20contrato%20e%20sem%20fidelidade." target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg>Quero meu site + campanha</a><p class="promo-offer-note">Investimento em anúncios pago à parte.<br>Criativos dos anúncios fornecidos pela empresa.</p></div></article><article class="promo-card" id="promo-campaign-offer"><p class="promo-for">Já possui um site ou landing page?</p><h3>Agora é hora de levar<br>mais pessoas até ele.</h3><p class="promo-product">1 campanha de anúncio + 30 dias de acompanhamento</p><p class="promo-copy">Aumente a visibilidade da sua empresa com anúncios no Instagram e Facebook, direcionando as pessoas para conhecer seus serviços.</p><div class="promo-bottom"><p class="promo-investment">Seu investimento</p><div class="promo-price" aria-label="R$ 397,00"><span class="promo-currency">R$</span><span class="promo-value">397</span><span class="promo-cents">,00</span></div><p class="promo-payment">Pagamento único</p><div class="promo-freedom">Sem contrato e sem fidelidade</div><a class="promo-cta" href="https://wa.me/5511967876480?text=Ol%C3%A1%21%20Vim%20atrav%C3%A9s%20do%20site%20da%20MARC.%20Tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%201%20campanha%20de%20an%C3%BAncio%20com%2030%20dias%20de%20acompanhamento%2C%20por%20R%24%20397%2C00%2C%20sem%20contrato%20e%20sem%20fidelidade." target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg>Quero divulgar minha empresa</a><p class="promo-offer-note">Investimento em anúncios pago à parte.<br>Criativos dos anúncios fornecidos pela empresa.</p></div></article></div><button type="button" class="promo-continue">Continuar navegando no site</button></div></dialog><script>
+})();</script><script>(()=>{const footer=document.querySelector('.site-footer'),button=document.querySelector('.footer-whatsapp');if(!footer||!button)return;let queued=false;function align(){queued=false;const rect=footer.getBoundingClientRect();const height=button.offsetHeight;const bottom=rect.top<window.innerHeight?Math.max(24,window.innerHeight-(rect.top+rect.height/2)-height/2):24;button.style.setProperty('--whatsapp-bottom',bottom+'px');}function schedule(){if(!queued){queued=true;requestAnimationFrame(align);}}window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule);if(typeof ResizeObserver!=='undefined')new ResizeObserver(schedule).observe(footer);schedule();})();</script><script>(()=>{const nav=document.querySelector('header');const sync=()=>document.documentElement.style.setProperty('--navbar-height',nav.getBoundingClientRect().height+'px');sync();if(typeof ResizeObserver!=='undefined')new ResizeObserver(sync).observe(nav);else window.addEventListener('resize',sync);})();</script><dialog id="marc-promotions" aria-label="Ofertas de sites e campanhas de anúncios"><div class="promo-inner"><button type="button" class="promo-close" aria-label="Fechar ofertas"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><div class="promo-grid">
+<article class="promo-card promo-featured" id="promo-campaign-offer">
+<p class="promo-for">Oferta em destaque</p>
+<h3>Sua primeira campanha de anúncios!</h3>
+<div class="promo-price" aria-label="R$ 397,00"><span class="promo-currency">R$</span><span class="promo-value">397</span><span class="promo-cents">,00</span></div><p class="promo-copy">Uma campanha estruturada e acompanhada por 30 dias.</p>
+<p class="promo-payment">Pagamento único</p><div class="promo-freedom">Sem contrato e sem fidelidade</div><a class="promo-cta" href="https://wa.me/5511967876480?text=Ol%C3%A1%21%20Vim%20atrav%C3%A9s%20do%20site%20da%20MARC.%20Tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%201%20campanha%20de%20an%C3%BAncio%20com%2030%20dias%20de%20acompanhamento%2C%20por%20R%24%20397%2C00%2C%20sem%20contrato%20e%20sem%20fidelidade." target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg>Quero minha campanha</a>
+</article>
+<article class="promo-card promo-secondary" id="promo-site-offer">
+<p class="promo-secondary-intro">Quer também uma presença profissional na internet?</p>
+<h3>Pacote completo</h3>
+<div class="promo-price" aria-label="R$ 997,00"><span class="promo-currency">R$</span><span class="promo-value">997</span><span class="promo-cents">,00</span></div><p class="promo-product">Site/Landing Page + 1 campanha de tráfego pago + acompanhamento por 30 dias.</p>
+<p class="promo-payment">Pagamento único</p><div class="promo-freedom">Sem contrato e sem fidelidade</div><a class="promo-cta" href="https://wa.me/5511967876480?text=Ol%C3%A1%21%20Vim%20atrav%C3%A9s%20do%20site%20da%20MARC.%20Tenho%20interesse%20no%20combo%20de%20site%2Flanding%20page%20%2B%20cria%C3%A7%C3%A3o%20de%201%20campanha%20de%20an%C3%BAncio%20com%2030%20dias%20de%20acompanhamento%2C%20por%20R%24%20997%2C00%2C%20sem%20contrato%20e%20sem%20fidelidade." target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg>Quero o pacote completo</a>
+</article>
+</div><p class="promo-offer-note">Nas duas ofertas: investimento em anúncios pago à parte.<br>Criativos dos anúncios fornecidos pela empresa.</p><button type="button" class="promo-continue">Continuar navegando no site</button></div></dialog><script>
 (()=>{
 const popup=document.getElementById('marc-promotions');
 if(!popup||typeof popup.showModal!=='function')return;
